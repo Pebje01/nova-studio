@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVA Studio - Brand Identity</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background: #F8F7F3;
+            min-height: 100vh;
+            padding: 3rem 0 3rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .header {
+            text-align: center;
+            margin: -3rem calc(-50vw + 50%) 4rem;
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #302E2C 0%, #5B5546 100%);
+            border-radius: 0 0 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            left: calc(50% - 50vw);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(135, 95, 69, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(91, 85, 70, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-icon {
+            width: 5rem;
+            height: 5rem;
+            background: linear-gradient(135deg, #875F45 0%, #BCB3A6 100%);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            box-shadow: 0 8px 32px rgba(135, 95, 69, 0.3);
+        }
+
+        .title {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 300;
+            color: #F8F7F3;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-weight: 400;
+            color: #BCB3A6;
+            letter-spacing: 0.05em;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 300;
+            color: #302E2C;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #BCB3A6, transparent);
+            margin: 4rem 0;
+        }
+
+        /* Logo Grid */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .logo-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            border: 2px solid #e7e5e4;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .logo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: #875F45;
+        }
+
+        .logo-card.dark {
+            background: linear-gradient(135deg, #302E2C 0%, #1c1917 100%);
+        }
+
+        .logo-display {
+            height: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-display img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+
+        .logo-card.dark .logo-display img {
+            /* Gebruikt nu nova_logo_2_wit.png - geen filter nodig */
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #302E2C;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.01em;
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #5B5546;
+            line-height: 1.6;
+        }
+
+        .logo-card.dark .card-title {
+            color: white;
+        }
+
+        .logo-card.dark .card-desc {
+            color: #d6d3d1;
+        }
+
+        /* Mockup Grid */
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .mockup-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid #e7e5e4;
+            transition: all 0.3s;
+        }
+
+        .mockup-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .mockup-image {
+            aspect-ratio: 4/3;
+            background: #f5f5f4;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mockup-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .mockup-card:hover .mockup-image img {
+            transform: scale(1.05);
+        }
+
+        /* Full Width Mockup */
+        .mockup-full {
+            grid-column: 1 / -1;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #BCB3A6;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #5B5546;
+            letter-spacing: 0.02em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 2rem 0;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .header {
+                margin: -2rem calc(-50vw + 50%) 3rem;
+                padding: 4rem 1.5rem;
+                border-radius: 0 0 1.5rem 1.5rem;
+            }
+
+            .logo-grid,
+            .mockup-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-display {
+                height: 8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-icon"></div>
+            <h1 class="title">NOVA studio showcase</h1>
+        </div>
+
+        <!-- Logo Section -->
+        <section>
+            <h2 class="section-title">Logo Varianten</h2>
+
+            <div class="logo-grid">
+                <!-- Primary Logo -->
+                <div class="logo-card">
+                    <div class="logo-display">
+                        <img src="Nova_LogoDonker15.png" alt="NOVA Studio Logo">
+                    </div>
+                    <h3 class="card-title">Primair Logo</h3>
+                    <p class="card-desc">Hoofdversie voor lichte achtergronden</p>
+                </div>
+
+                <!-- Dark Version -->
+                <div class="logo-card dark">
+                    <div class="logo-display">
+                        <img src="Nova_LogoWit03.png" alt="NOVA Studio Logo Wit">
+                    </div>
+                    <h3 class="card-title">Donkere Variant</h3>
+                    <p class="card-desc">Voor donkere achtergronden</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Mockups Section -->
+        <section>
+            <h2 class="section-title">Mockups</h2>
+
+            <div class="mockup-grid">
+                <div class="mockup-card">
+                    <div class="mockup-image">
+                        <img src="Nova-studio-mockup.png" alt="Brand Mockup">
+                    </div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="mockup-image">
+                        <img src="Studionovamockup .png" alt="Studio Mockup">
+                    </div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="mockup-image">
+                        <img src="novamockup.jpg" alt="Material Mockup">
+                    </div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="mockup-image">
+                        <img src="novafitness.jpg" alt="NOVA Fitness">
+                    </div>
+                </div>
+
+                <div class="mockup-card mockup-full">
+                    <div class="mockup-image">
+                        <img src="visitekaartjes.jpg" alt="Visitekaartjes">
+                    </div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="mockup-image">
+                        <img src="billboard.jpg" alt="Billboard">
+                    </div>
+                </div>
+
+                <div class="mockup-card">
+                    <div class="mockup-image">
+                        <img src="nova-studio-foto.jpg" alt="Studio Sfeer">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="footer-text">NOVA Studio Brand Identity © 2026 door Daley Jansen</p>
+        </div>
+    </div>
+</body>
+</html>
