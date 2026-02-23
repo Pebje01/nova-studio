@@ -28,8 +28,8 @@
 
         .header {
             text-align: center;
-            margin: -3rem calc(-50vw + 50%) 4rem;
-            padding: 6rem 2rem;
+            margin: -3rem calc(-50vw + 50%) 3rem;
+            padding: 3rem 2rem;
             background: linear-gradient(135deg, #302E2C 0%, #5B5546 100%);
             border-radius: 0 0 2rem 2rem;
             position: relative;
@@ -54,19 +54,20 @@
         }
 
         .logo-icon {
-            width: 5rem;
-            height: 5rem;
-            background: linear-gradient(135deg, #875F45 0%, #BCB3A6 100%);
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            box-shadow: 0 8px 32px rgba(135, 95, 69, 0.3);
+            width: 6rem;
+            margin: 0 auto 1rem;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: auto;
         }
 
         .title {
-            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-size: clamp(1.8rem, 5vw, 3rem);
             font-weight: 300;
             color: #F8F7F3;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             letter-spacing: 0.02em;
             line-height: 1.1;
         }
@@ -160,6 +161,49 @@
             color: #d6d3d1;
         }
 
+        /* Color Palette */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .color-swatch {
+            border-radius: 1.25rem;
+            overflow: hidden;
+            border: 1px solid #e7e5e4;
+            transition: all 0.3s;
+        }
+
+        .color-swatch:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .swatch-color {
+            height: 8rem;
+        }
+
+        .swatch-info {
+            background: white;
+            padding: 1rem 1.25rem;
+        }
+
+        .swatch-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #302E2C;
+            margin-bottom: 0.25rem;
+        }
+
+        .swatch-hex {
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #5B5546;
+            font-family: monospace;
+        }
+
         /* Mockup Grid */
         .mockup-grid {
             display: grid;
@@ -251,7 +295,7 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="logo-icon"></div>
+            <div class="logo-icon"><img src="nova_logo_2_wit.png" alt="NOVA Studio"></div>
             <h1 class="title">NOVA studio showcase</h1>
         </div>
 
@@ -263,7 +307,7 @@
                 <!-- Primary Logo -->
                 <div class="logo-card">
                     <div class="logo-display">
-                        <img src="Nova_LogoDonker15.png" alt="NOVA Studio Logo">
+                        <img src="nova_logo_2.svg" alt="NOVA Studio Logo">
                     </div>
                     <h3 class="card-title">Primair Logo</h3>
                     <p class="card-desc">Hoofdversie voor lichte achtergronden</p>
@@ -272,10 +316,55 @@
                 <!-- Dark Version -->
                 <div class="logo-card dark">
                     <div class="logo-display">
-                        <img src="Nova_LogoWit03.png" alt="NOVA Studio Logo Wit">
+                        <img src="nova_logo_2_wit.png" alt="NOVA Studio Logo Wit">
                     </div>
                     <h3 class="card-title">Donkere Variant</h3>
                     <p class="card-desc">Voor donkere achtergronden</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+<!-- Color Palette Section -->
+        <section style="background:#302E2C; margin:0 calc(-50vw + 50%); padding:4rem 2rem; width:100vw; left:calc(50% - 50vw); border-radius:2rem;">
+            <h2 class="section-title" style="color:#F8F7F3;">Kleurenpalet</h2>
+
+            <div class="palette-grid">
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #F8F7F3;"></div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Linen</p>
+                        <p class="swatch-hex">#F8F7F3</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #BCB3A6;"></div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Sand</p>
+                        <p class="swatch-hex">#BCB3A6</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #737260;"></div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Olive</p>
+                        <p class="swatch-hex">#737260</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #8B7562;"></div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Hazel</p>
+                        <p class="swatch-hex">#8B7562</p>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch-color" style="background: #302E2C;"></div>
+                    <div class="swatch-info">
+                        <p class="swatch-name">Espresso</p>
+                        <p class="swatch-hex">#302E2C</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -289,43 +378,31 @@
             <div class="mockup-grid">
                 <div class="mockup-card">
                     <div class="mockup-image">
-                        <img src="Nova-studio-mockup.png" alt="Brand Mockup">
+                        <img src="novamockup1.jpg" alt="NOVA Studio Sfeer">
                     </div>
                 </div>
 
                 <div class="mockup-card">
                     <div class="mockup-image">
-                        <img src="Studionovamockup .png" alt="Studio Mockup">
+                        <img src="novamockup2.jpg" alt="NOVA Studio Gevel">
                     </div>
                 </div>
 
                 <div class="mockup-card">
                     <div class="mockup-image">
-                        <img src="novamockup.jpg" alt="Material Mockup">
+                        <img src="mockupnieuw.jpg" alt="NOVA Studio Embossed">
                     </div>
                 </div>
 
                 <div class="mockup-card">
                     <div class="mockup-image">
-                        <img src="novafitness.jpg" alt="NOVA Fitness">
+                        <img src="visitekaartjes nieuw.jpg" alt="Visitekaartjes">
                     </div>
                 </div>
 
                 <div class="mockup-card mockup-full">
-                    <div class="mockup-image">
-                        <img src="visitekaartjes.jpg" alt="Visitekaartjes">
-                    </div>
-                </div>
-
-                <div class="mockup-card">
-                    <div class="mockup-image">
-                        <img src="billboard.jpg" alt="Billboard">
-                    </div>
-                </div>
-
-                <div class="mockup-card">
-                    <div class="mockup-image">
-                        <img src="nova-studio-foto.jpg" alt="Studio Sfeer">
+                    <div class="mockup-image" style="aspect-ratio:auto;">
+                        <img src="nova_kleurenpalet.jpg" alt="Brand Overview" style="object-fit:contain;">
                     </div>
                 </div>
             </div>
