@@ -17,7 +17,7 @@ export default function Trainers() {
           style={{
             fontSize: "clamp(36px, 5vw, 68px)",
             lineHeight: 1.1,
-            letterSpacing: "-1px",
+            letterSpacing: "-4.08px",
           }}
         >
           {trainersContent.headingStart}{" "}
@@ -26,7 +26,7 @@ export default function Trainers() {
         </motion.h2>
 
         {/* Trainer grid */}
-        <div className="mt-16 flex flex-wrap justify-center gap-10 lg:gap-14">
+        <div className="mt-16 flex flex-wrap justify-center gap-8 lg:gap-10">
           {trainersContent.trainers.map((trainer, i) => (
             <motion.div
               key={trainer.name}
@@ -38,10 +38,11 @@ export default function Trainers() {
               className="flex flex-col items-center"
             >
               <div
-                className="relative overflow-hidden rounded-full"
+                className="relative overflow-hidden"
                 style={{
-                  width: "clamp(180px, 20vw, 280px)",
-                  height: "clamp(180px, 20vw, 280px)",
+                  width: "clamp(200px, 24vw, 340px)",
+                  height: "clamp(280px, 34vw, 490px)",
+                  borderRadius: "50%",
                 }}
               >
                 <Image

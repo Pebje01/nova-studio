@@ -45,16 +45,17 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[20px] lg:px-[48px]"
-      style={{ height: 90 }}
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[20px] lg:px-[96px]"
+      style={{ height: 100 }}
     >
       {/* Background pill */}
       <div
-        className={`absolute inset-x-[24px] lg:inset-x-[40px] top-3 bottom-3 rounded-full transition-all duration-300 ${
+        className={`absolute inset-x-[68px] top-[14px] bottom-[0px] transition-all duration-300 ${
           scrolled
             ? "bg-white/90 shadow-md backdrop-blur-md"
             : "bg-white/30 backdrop-blur-sm"
         }`}
+        style={{ height: 89, borderRadius: 100 }}
       />
 
       {/* Logo */}
@@ -84,7 +85,7 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop nav links */}
-      <div className="relative z-10 hidden items-center gap-10 lg:flex">
+      <div className="relative z-10 hidden items-center gap-12 lg:flex">
         {navLinks.map((link) => (
           <Link
             key={link.label}
@@ -94,7 +95,7 @@ export default function Navbar() {
                 ? "text-brown-dark hover:text-sage-dark"
                 : "text-white/90 hover:text-white"
             }`}
-            style={{ fontSize: 14 }}
+            style={{ fontSize: 18 }}
           >
             {link.label}
           </Link>
@@ -106,7 +107,7 @@ export default function Navbar() {
               ? "border-brown-dark bg-transparent text-brown-dark hover:bg-brown-dark hover:text-white"
               : "border-white bg-white text-brown-dark hover:bg-transparent hover:text-white"
           }`}
-          style={{ fontSize: 16, borderRadius: 80, padding: "14px 32px" }}
+          style={{ fontSize: 16, borderRadius: 80, padding: "16px 36px 14px" }}
         >
           Contact
         </Link>

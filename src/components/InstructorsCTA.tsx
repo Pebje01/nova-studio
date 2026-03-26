@@ -28,7 +28,7 @@ export default function InstructorsCTA() {
             style={{
               fontSize: "clamp(36px, 5vw, 68px)",
               lineHeight: 1.1,
-              letterSpacing: "-1px",
+              letterSpacing: "-4.08px",
             }}
           >
             {instructorsCTAContent.headingStart}{" "}
@@ -43,7 +43,7 @@ export default function InstructorsCTA() {
           <Link
             href="#memberships"
             className="mt-8 inline-flex items-center bg-sage font-medium text-white transition-all duration-300 hover:bg-sage-dark"
-            style={{ fontSize: 18, borderRadius: 80, padding: "22px 40px", fontWeight: 500 }}
+            style={{ fontSize: 18, borderRadius: 80, padding: "26px 40px 22px", fontWeight: 500 }}
           >
             {instructorsCTAContent.ctaLabel}
           </Link>
@@ -57,13 +57,13 @@ export default function InstructorsCTA() {
           transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
           style={{
             y: imageY,
-            width: "clamp(300px, 40vw, 540px)",
-            height: "clamp(400px, 55vw, 734px)",
-            borderRadius: "500px",
+            width: "clamp(200px, 24vw, 340px)",
+            height: "clamp(280px, 34vw, 490px)",
+            borderRadius: "50%",
           }}
           className="relative"
         >
-          <div className="h-full w-full overflow-hidden" style={{ borderRadius: "500px" }}>
+          <div className="h-full w-full overflow-hidden" style={{ borderRadius: "50%" }}>
             <Image
               src={instructorsCTAContent.image}
               alt="Yoga instructor"

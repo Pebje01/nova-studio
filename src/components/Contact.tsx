@@ -22,7 +22,7 @@ export default function Contact() {
               style={{
                 fontSize: "clamp(36px, 5vw, 68px)",
                 lineHeight: 1.1,
-                letterSpacing: "-1px",
+                letterSpacing: "-4.08px",
               }}
             >
               {contactContent.headingStart}{" "}
@@ -65,7 +65,7 @@ export default function Contact() {
               <button
                 type="submit"
                 className="mt-2 w-full bg-sage font-medium text-white transition-all duration-300 hover:bg-sage/80 md:w-auto md:self-start"
-                style={{ fontSize: 15, borderRadius: 80, padding: "22px 40px" }}
+                style={{ fontSize: 18, borderRadius: 80, padding: "26px 40px 22px" }}
               >
                 Send message
               </button>

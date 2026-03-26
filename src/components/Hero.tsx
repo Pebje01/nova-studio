@@ -10,7 +10,7 @@ export default function Hero() {
   const bgY = useTransform(scrollY, [0, 500], [0, 150]);
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden" style={{ paddingTop: "120px" }}>
+    <section className="relative flex min-h-screen items-center overflow-hidden" style={{ paddingTop: "160px" }}>
       {/* Background image with parallax */}
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <Image
@@ -26,16 +26,16 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 mx-auto w-full max-w-[1440px] px-[30px] lg:px-[68px]">
         <div className="flex items-center justify-between">
-          <div className="max-w-[620px] pt-[60px]">
+          <div className="max-w-[720px]">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0, 1] }}
               className="font-serif font-normal text-white"
               style={{
-                fontSize: "clamp(44px, 5.5vw, 68px)",
-                lineHeight: 1.1,
-                letterSpacing: "-4.08px",
+                fontSize: "clamp(48px, 5.8vw, 80px)",
+                lineHeight: 1.0,
+                letterSpacing: "-2.4px",
               }}
             >
               {heroContent.headingStart}{" "}
@@ -49,7 +49,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.1, 0, 1] }}
-              className="mt-8 max-w-[514px] font-sans text-white/80"
+              className="mt-6 max-w-[514px] font-sans text-white/80"
               style={{ fontSize: 18, lineHeight: "25.2px" }}
             >
               {heroContent.subtitle}
@@ -59,12 +59,12 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3, ease: [0.25, 0.1, 0, 1] }}
-              className="mt-12"
+              className="mt-10"
             >
               <Link
                 href="#memberships"
                 className="inline-flex items-center bg-white font-medium text-brown-dark transition-all duration-300 hover:bg-cream"
-                style={{ fontSize: 18, borderRadius: 80, fontWeight: 500, padding: "22px 40px" }}
+                style={{ fontSize: 18, borderRadius: 80, fontWeight: 500, padding: "26px 40px 22px" }}
               >
                 {heroContent.ctaLabel}
               </Link>
@@ -78,9 +78,9 @@ export default function Hero() {
             whileInView={{ scale: [0.95, 1] }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.25, 0.1, 0, 1] }}
             className="relative hidden lg:block"
-            style={{ width: 480, height: 650, borderRadius: "500px" }}
+            style={{ width: "clamp(260px, 24vw, 380px)", height: "clamp(360px, 32vw, 520px)", borderRadius: "50%" }}
           >
-            <div className="h-full w-full overflow-hidden" style={{ borderRadius: "500px" }}>
+            <div className="h-full w-full overflow-hidden" style={{ borderRadius: "50%" }}>
               <Image
                 src={heroContent.heroCircleImage}
                 alt="Yoga pose"

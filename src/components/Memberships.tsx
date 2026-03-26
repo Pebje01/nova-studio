@@ -17,7 +17,7 @@ export default function Memberships() {
           style={{
             fontSize: "clamp(36px, 5vw, 68px)",
             lineHeight: 1.1,
-            letterSpacing: "-1px",
+            letterSpacing: "-4.08px",
           }}
         >
           {membershipsContent.headingStart}{" "}
