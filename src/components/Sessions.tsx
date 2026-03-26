@@ -38,13 +38,13 @@ export default function Sessions() {
   }, []);
 
   return (
-    <section className="bg-white py-[100px] lg:py-[140px]">
-      <div className="mx-auto max-w-[1400px] px-[30px] lg:px-[60px]">
+    <section className="bg-white py-[120px] lg:py-[160px]">
+      <div className="mx-auto max-w-[1440px] px-[30px] lg:px-[68px]">
         <motion.h2
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5, ease: [0.25, 0.1, 0, 1] }}
           className="text-center font-serif font-normal text-brown-dark"
           style={{
             fontSize: "clamp(36px, 5vw, 68px)",
@@ -53,7 +53,7 @@ export default function Sessions() {
           }}
         >
           {sessionsContent.headingStart}{" "}
-          <em className="italic text-sage-dark">
+          <em className="italic">
             {sessionsContent.headingAccent}
           </em>
           <br />
@@ -64,20 +64,21 @@ export default function Sessions() {
       {/* Scrollable cards */}
       <div
         ref={scrollRef}
-        className="hide-scrollbar mt-12 flex gap-6 overflow-x-auto px-[30px] lg:mt-16 lg:px-[60px]"
+        className="hide-scrollbar mt-12 flex gap-5 overflow-x-auto px-[30px] lg:mt-16 lg:px-[68px]"
         style={{ scrollSnapType: "x mandatory" }}
       >
         {sessionsContent.sessions.map((session, i) => (
           <motion.div
             key={session.id}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.25, delay: 0.06 * i }}
-            className="flex-shrink-0 flex flex-col justify-between bg-sage p-8 lg:p-10"
+            transition={{ duration: 0.4, delay: 0.08 * i, ease: [0.25, 0.1, 0, 1] }}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            className="flex-shrink-0 flex flex-col justify-between bg-sage p-10"
             style={{
-              width: "clamp(300px, 30vw, 420px)",
-              minHeight: 420,
+              width: "420px",
+              minHeight: 468,
               borderRadius: 20,
               scrollSnapAlign: "start",
             }}
@@ -88,7 +89,7 @@ export default function Sessions() {
               </div>
               <h3
                 className="font-serif font-normal text-white"
-                style={{ fontSize: 28, lineHeight: "34px" }}
+                style={{ fontSize: 32, lineHeight: "34px" }}
               >
                 {session.title}
               </h3>
@@ -104,7 +105,7 @@ export default function Sessions() {
       </div>
 
       {/* Progress bar */}
-      <div className="mx-auto mt-8 max-w-[1400px] px-[30px] lg:px-[60px]">
+      <div className="mx-auto mt-8 max-w-[1440px] px-[30px] lg:px-[68px]">
         <div className="h-[2px] w-full bg-gray-border">
           <motion.div
             className="h-full bg-brown-dark"

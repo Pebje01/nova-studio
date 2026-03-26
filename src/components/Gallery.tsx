@@ -18,8 +18,8 @@ export default function Gallery() {
     );
 
   return (
-    <section className="bg-white py-[100px] lg:py-[140px]">
-      <div className="mx-auto max-w-[1400px] px-[30px] lg:px-[60px]">
+    <section className="bg-white py-[120px] lg:py-[160px]">
+      <div className="mx-auto max-w-[1440px] px-[30px] lg:px-[68px]">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,10 +53,10 @@ export default function Gallery() {
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0, 1] }}
               className="absolute inset-0"
             >
               <Image

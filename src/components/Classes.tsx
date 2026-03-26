@@ -11,8 +11,8 @@ export default function Classes() {
   const schedule = classesContent.schedule[activeDay] || [];
 
   return (
-    <section id="classes" className="bg-white py-[100px] lg:py-[140px]">
-      <div className="mx-auto max-w-[1400px] px-[30px] lg:px-[60px]">
+    <section id="classes" className="bg-white py-[120px] lg:py-[160px]">
+      <div className="mx-auto max-w-[1440px] px-[30px] lg:px-[68px]">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,12 +46,12 @@ export default function Classes() {
             <button
               key={day}
               onClick={() => setActiveDay(day)}
-              className={`rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 ${
+              className={`relative rounded-full px-7 py-3 text-sm font-medium transition-all duration-300 ${
                 activeDay === day
                   ? "bg-sage-dark text-white"
                   : "border border-gray-border bg-transparent text-brown-dark hover:bg-cream"
               }`}
-              style={{ fontSize: 14 }}
+              style={{ fontSize: 14, height: 48 }}
             >
               {day}
             </button>
@@ -63,9 +63,9 @@ export default function Classes() {
           {schedule.map((item, i) => (
             <motion.div
               key={`${activeDay}-${i}`}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, delay: 0.07 * i }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.35, delay: 0.08 * i, ease: [0.25, 0.1, 0, 1] }}
               className="flex flex-col items-start gap-4 border-t border-gray-border py-6 md:flex-row md:items-center md:justify-between"
             >
               <div className="min-w-[200px]">

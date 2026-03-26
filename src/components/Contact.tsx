@@ -6,8 +6,8 @@ import { contactContent } from "@/lib/content";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-sage-dark py-[100px] lg:py-[140px]">
-      <div className="mx-auto max-w-[1400px] px-[30px] lg:px-[60px]">
+    <section id="contact" className="bg-sage-dark py-[120px] lg:py-[160px]">
+      <div className="mx-auto max-w-[1440px] px-[30px] lg:px-[68px]">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           {/* Form */}
           <motion.div
@@ -40,55 +40,59 @@ export default function Contact() {
                 <input
                   type="text"
                   placeholder="First name"
-                  className="rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-white/50 outline-none transition-colors focus:border-white/40"
-                  style={{ fontSize: 14 }}
+                  className="border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-white/50 outline-none transition-colors focus:border-white/40"
+                  style={{ fontSize: 14, borderRadius: 16 }}
                 />
                 <input
                   type="text"
                   placeholder="Last name"
-                  className="rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-white/50 outline-none transition-colors focus:border-white/40"
-                  style={{ fontSize: 14 }}
+                  className="border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-white/50 outline-none transition-colors focus:border-white/40"
+                  style={{ fontSize: 14, borderRadius: 16 }}
                 />
               </div>
               <input
                 type="email"
                 placeholder="Email"
-                className="rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-white/50 outline-none transition-colors focus:border-white/40"
-                style={{ fontSize: 14 }}
+                className="border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-white/50 outline-none transition-colors focus:border-white/40"
+                style={{ fontSize: 14, borderRadius: 16 }}
               />
               <textarea
                 placeholder="Your message"
                 rows={4}
-                className="resize-none rounded-xl border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-white/50 outline-none transition-colors focus:border-white/40"
-                style={{ fontSize: 14 }}
+                className="resize-none border border-white/20 bg-white/10 px-5 py-4 text-white placeholder-white/50 outline-none transition-colors focus:border-white/40"
+                style={{ fontSize: 14, borderRadius: 16 }}
               />
               <button
                 type="submit"
-                className="mt-2 w-full rounded-full bg-sage px-8 py-4 text-sm font-medium text-white transition-all duration-300 hover:bg-sage/80 md:w-auto md:self-start"
-                style={{ fontSize: 15 }}
+                className="mt-2 w-full bg-sage font-medium text-white transition-all duration-300 hover:bg-sage/80 md:w-auto md:self-start"
+                style={{ fontSize: 15, borderRadius: 80, padding: "22px 40px" }}
               >
                 Send message
               </button>
             </form>
           </motion.div>
 
-          {/* Circle image */}
+          {/* Circle image with float animation */}
           <motion.div
             initial={{ opacity: 0, x: 15 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
             className="relative hidden lg:block"
             style={{ width: 450, height: 450 }}
           >
-            <div className="h-full w-full overflow-hidden rounded-full">
+            <motion.div
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="h-full w-full overflow-hidden rounded-full"
+            >
               <Image
                 src={contactContent.image}
                 alt="Yoga meditation"
                 fill
                 className="object-cover"
               />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>

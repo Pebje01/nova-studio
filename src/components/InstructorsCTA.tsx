@@ -1,14 +1,19 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { instructorsCTAContent } from "@/lib/content";
 
 export default function InstructorsCTA() {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const imageY = useTransform(scrollYProgress, [0, 1], [40, -40]);
+
   return (
-    <section className="bg-cream py-[100px] lg:py-[140px]">
-      <div className="mx-auto flex max-w-[1400px] flex-col items-center gap-16 px-[30px] lg:flex-row lg:px-[60px]">
+    <section ref={ref} className="bg-cream py-[60px] lg:py-[80px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col items-center gap-16 px-[30px] lg:flex-row lg:px-[68px]">
         {/* Left text */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -37,26 +42,28 @@ export default function InstructorsCTA() {
           </p>
           <Link
             href="#memberships"
-            className="mt-8 inline-flex items-center rounded-full bg-sage px-8 py-4 text-sm font-medium text-white transition-all duration-300 hover:bg-sage-dark"
-            style={{ fontSize: 15 }}
+            className="mt-8 inline-flex items-center bg-sage font-medium text-white transition-all duration-300 hover:bg-sage-dark"
+            style={{ fontSize: 18, borderRadius: 80, padding: "22px 40px", fontWeight: 500 }}
           >
             {instructorsCTAContent.ctaLabel}
           </Link>
         </motion.div>
 
-        {/* Right circle image */}
+        {/* Right circle image with parallax */}
         <motion.div
           initial={{ opacity: 0, x: 15 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.3, delay: 0.1 }}
-          className="relative"
+          transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 0.1, 0, 1] }}
           style={{
-            width: "clamp(300px, 40vw, 500px)",
-            height: "clamp(300px, 40vw, 500px)",
+            y: imageY,
+            width: "clamp(300px, 40vw, 540px)",
+            height: "clamp(400px, 55vw, 734px)",
+            borderRadius: "500px",
           }}
+          className="relative"
         >
-          <div className="h-full w-full overflow-hidden rounded-full">
+          <div className="h-full w-full overflow-hidden" style={{ borderRadius: "500px" }}>
             <Image
               src={instructorsCTAContent.image}
               alt="Yoga instructor"

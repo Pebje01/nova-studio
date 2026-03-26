@@ -26,8 +26,8 @@ export default function Reviews() {
   const imageReviews = reviewsContent.reviews.filter((r) => r.hasImage);
 
   return (
-    <section id="reviews" className="bg-cream py-[100px] lg:py-[140px]">
-      <div className="mx-auto max-w-[1400px] px-[30px] lg:px-[60px]">
+    <section id="reviews" className="bg-cream py-[120px] lg:py-[160px]">
+      <div className="mx-auto max-w-[1440px] px-[30px] lg:px-[68px]">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,10 +101,10 @@ interface Review {
 function ReviewCard({ review, index }: { review: Review; index: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.25, delay: 0.06 * index }}
+      transition={{ duration: 0.5, delay: 0.1 * index, ease: [0.25, 0.1, 0, 1] }}
       className="bg-white p-8"
       style={{ borderRadius: 20 }}
     >
@@ -134,19 +134,26 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
 function ImageCard({ review, index }: { review: Review; index: number }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.25, delay: 0.06 * index }}
+      transition={{ duration: 0.5, delay: 0.1 * index, ease: [0.25, 0.1, 0, 1] }}
+      whileHover="hovered"
       className="relative overflow-hidden"
       style={{ borderRadius: 20, minHeight: 300 }}
     >
-      <Image
-        src={review.image || ""}
-        alt={review.name || "Review"}
-        fill
-        className="object-cover"
-      />
+      <motion.div
+        className="absolute inset-0"
+        variants={{ hovered: { scale: 1.05 } }}
+        transition={{ duration: 0.4, ease: [0.25, 0.1, 0, 1] }}
+      >
+        <Image
+          src={review.image || ""}
+          alt={review.name || "Review"}
+          fill
+          className="object-cover"
+        />
+      </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
       {review.name && (
         <div className="absolute bottom-6 left-6 text-white">

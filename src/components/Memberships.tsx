@@ -6,8 +6,8 @@ import { membershipsContent } from "@/lib/content";
 
 export default function Memberships() {
   return (
-    <section id="memberships" className="bg-white py-[100px] lg:py-[140px]">
-      <div className="mx-auto max-w-[1400px] px-[30px] lg:px-[60px]">
+    <section id="memberships" className="bg-white py-[120px] lg:py-[160px]">
+      <div className="mx-auto max-w-[1440px] px-[30px] lg:px-[68px]">
         <motion.h2
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -41,20 +41,25 @@ export default function Memberships() {
           {membershipsContent.plans.map((plan, i) => (
             <motion.div
               key={plan.id}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={
+                plan.featured
+                  ? { opacity: 0, y: 40, scale: 0.98 }
+                  : { opacity: 0, y: 30 }
+              }
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.25, delay: 0.06 * i }}
+              transition={{ duration: 0.5, delay: 0.1 * i, ease: [0.25, 0.1, 0, 1] }}
+              whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(0,0,0,0.08)", transition: { duration: 0.3 } }}
               className={`flex flex-col justify-between p-8 lg:p-10 ${
                 plan.featured
                   ? "bg-sage text-white"
                   : "bg-white text-brown-dark border border-gray-border"
               }`}
-              style={{ borderRadius: 20, minHeight: 500 }}
+              style={{ borderRadius: 20, minHeight: 520 }}
             >
               <div>
                 <span
-                  className={`inline-block rounded-full px-5 py-2 text-sm font-medium ${
+                  className={`inline-block rounded-full px-6 py-2.5 text-sm font-medium ${
                     plan.featured
                       ? "bg-white/20 text-white"
                       : "bg-brown-dark text-white"
@@ -67,7 +72,7 @@ export default function Memberships() {
                 <div className="mt-6">
                   <span
                     className="font-serif font-normal"
-                    style={{ fontSize: 48, lineHeight: "52px" }}
+                    style={{ fontSize: 52, lineHeight: "52px" }}
                   >
                     {plan.price}
                   </span>

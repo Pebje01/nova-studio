@@ -45,12 +45,12 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[30px] lg:px-[60px]"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[20px] lg:px-[48px]"
       style={{ height: 90 }}
     >
       {/* Background pill */}
       <div
-        className={`absolute inset-x-4 top-3 bottom-3 rounded-full transition-all duration-300 ${
+        className={`absolute inset-x-[24px] lg:inset-x-[40px] top-3 bottom-3 rounded-full transition-all duration-300 ${
           scrolled
             ? "bg-white/90 shadow-md backdrop-blur-md"
             : "bg-white/30 backdrop-blur-sm"
@@ -84,7 +84,7 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop nav links */}
-      <div className="relative z-10 hidden items-center gap-8 lg:flex">
+      <div className="relative z-10 hidden items-center gap-10 lg:flex">
         {navLinks.map((link) => (
           <Link
             key={link.label}
@@ -101,12 +101,12 @@ export default function Navbar() {
         ))}
         <Link
           href="#contact"
-          className={`rounded-full border px-6 py-3 text-sm font-medium transition-all duration-300 ${
+          className={`border px-6 py-3 text-sm font-medium transition-all duration-300 ${
             scrolled
               ? "border-brown-dark bg-transparent text-brown-dark hover:bg-brown-dark hover:text-white"
               : "border-white bg-white text-brown-dark hover:bg-transparent hover:text-white"
           }`}
-          style={{ fontSize: 14 }}
+          style={{ fontSize: 16, borderRadius: 80, padding: "14px 32px" }}
         >
           Contact
         </Link>
